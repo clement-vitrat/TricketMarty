@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Trick et Marty</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords"> 
+        
+        <!-- Mes pages CSS -->
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/MyTeam.scss">
+
+        <!-- Lien pour icone -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <!-- Icons -->
+        <link rel="icon" href="../img/logo.jpeg">
+    </head>
+
+    <body>
+
+        <!-- CREATION DE MON MENU -->
+        <nav>
+            <div class="theme">
+                <div class="changeTheme" id="changeTheme"></div>
+            </div>
+            <!-- Création du titre du menu -->
+            <div class="logo">
+                <a href="../index.html">Trick et <strong>Marty</strong></a>
+            </div>
+            <!-- Création du bouton pour le menu au format smartphone -->
+            <label for="btn" class="icon">
+                <span class="fa fa-bars"></span>
+            </label>
+            <input type="checkbox"  id="btn">
+                
+                <!-- Création du menu avec les sous-menus -->
+                <ul>
+                    <li><a href="../index.html" class="active">Accueil</a></li>
+                    <li><a href="teams.html">Équipe</a></li>
+                    <li><a href=""></a></li>
+                    <li><a href="">Conception</a></li>
+                </ul>
+        </nav>
+
+
+        <!-- Affichage de notre Team -->
+            <h2>Rencontrer notre équipe</h2>
+
+            <div :class="['container', isSelected ? 'container-selected':'', isReady ? 'container-ready':'']" id="app">
+                <div class="team-container">
+                  <div class="header">
+                    <h2 class="header-title">Our Team</h2>
+                  </div>
+                  
+                  <div class="person-list">
+                    <div class="person" v-for="(person,index) in persons" @click="selectPerson(index,$event)"><img class="person-img" :src="person.photo">
+                      <div class="person-details">
+                        <h2 class="person-title"><span id="name"></span>{{person.name}}</h2>
+                        <p class="person-desc"><span id="title"></span>{{person.title}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-detail">
+                  <div class="team-detail-inner" v-if="isOk">
+                    <div class="team-detail-left" :style=`background-image:url(${selectedPersonData.photo})`>
+                      <div class="team-detail-photo"><img :src="selectedPersonData.photo" alt="">
+                      </div>
+                    </div>
+                    <div class="team-detail-right">
+                      <div class="team-detail-bio">
+                        <div class="team-detail-header">
+                          <h2 class="person-title">{{selectedPersonData.name}}</h2>
+                          <p class="person-desc">{{selectedPersonData.title}}</p>
+                          <div class="social">
+                            <a :href="selectedPersonData.social.facebook" target="_blank" class="ion-social-facebook"></a>
+                            <a :href="selectedPersonData.social.twitter" target="_blank" class="ion-social-twitter"></a>
+                            <a href="selectedPersonData.social.linkedin" target="_blank" class="ion-social-linkedin"></a>
+                            <a href="selectedPersonData.social.instagram" target="_blank" class="ion-social-instagram"></a>
+                          </div>
+                        </div>
+                        <div class="team-detail-bio-content" v-html="selectedPersonData.bio">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        
+        <script src="../persons.json"></script>
+        <script>
+            document.getElementById('name').textContent = persons.name;
+            document.getElementById('title').textContent = persons.title;
+        </script>
+
+    </body>
+
+</html>
