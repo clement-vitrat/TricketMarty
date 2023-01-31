@@ -1,0 +1,64 @@
+/* CREATION D'UN ARRIERE PLAN TRICK ET MARTY */
+
+.coffeeBeans {
+  max-width: 80px;
+  max-height: 80px;
+  width: 100%;
+}
+.coffeeBeans img {
+  max-width: 70px;
+  max-height: 70px;
+  object-fit: cover;
+}
+.bean1 img {
+  position: relative;
+  top: 610px;
+  left: 1200px;
+  opacity: 1;
+  transform: rotate(-60deg) translateY(0px);
+  animation: floatingBean1 8s ease-in-out infinite;
+}
+.bean2 img {
+  position: relative;
+  top: 525px;
+  left: 350px;
+  opacity: 1;
+  transform: rotate(35deg) translateY(0px);
+  animation: floatingBean2 8s ease-in-out infinite;
+}
+@keyframes floatingBean1 {
+  0% {transform: translateY(0px) rotate(-60deg);}
+  50% {transform: translateY(15px) rotate(-60deg);}
+  100% {transform: translateY(0px) rotate(-60deg);}
+}
+@keyframes floatingBean2 {
+  0% {transform: translateY(0px) rotate(35deg);}
+  50% {transform: translateY(15px) rotate(35deg);}
+  100% {transform: translateY(0px) rotate(35deg);}
+}
+@media (max-width: 1350px) {
+  .bean1, .bean2 {
+    position: relative;
+    right: 220px;
+  }
+}
+@media (max-width: 1100px) {
+  .bean1, .bean2 {
+    top: -200px;
+    left: -300px;
+  }
+  .bean2 {
+    top: -100px;
+  }
+}
+@media (max-width: 1000px) {
+  .bean1, .bean2 {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
