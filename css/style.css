@@ -1,0 +1,595 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+/* Mise en page des différentes couleurs de mes pages */
+:root {
+    --ecriture: #fff;
+    --background: #528aa1;
+    --bg-cours: #3f5f6c;
+    --color-cours: #aaa;
+    --green: #5ab036;
+    --separation-table: rgba(255, 255, 255, 0.349);
+}
+
+/* Mise en page de ma page */
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* Animations pour tout le texte de la page */
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+}
+/* Mise en page de roulette */
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 5rem;
+}
+body {
+    background: var(--ecriture);
+    overflow-x: hidden;
+}/*
+body::before {
+    background: url(../img/FondTrick&Marty.jpg) top right no-repeat;
+    background-size: cover;
+    position: fixed;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+}*/
+
+
+
+/* Mise en page de toutes les sections de la page */
+section {
+    padding: 3rem 9%;
+}
+
+
+/* MISE EN PAGE DE MON MENU */
+nav {
+    background: var(--background);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+nav:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+/* Différentes caractéristiques du Titre de mon menu */
+nav .logo a {
+    float: left;
+    color: var(--ecriture);
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 70px;
+    padding-left: 60px;
+    text-decoration: none;
+}
+/* Ajout de couleur sur une partie de mon Titre */
+nav strong {
+    color: var(--green);
+}
+nav ul {
+    float: right;
+    margin-right: 40px;
+    list-style: none;
+    position: relative;
+    margin-bottom: 0;
+}
+nav ul li {
+   float: left;
+   display: inline-block;
+   background: var(--background);
+   margin: 0 5px;
+}
+nav ul li a {
+    color: var(--ecriture);
+    line-height: 70px;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+}
+/* Mise en page du menu active et du menu au contact de la souris */
+nav ul li a:hover,
+nav ul li a.active,
+nav ul li label.active,
+label .active {
+    border-radius: 5px;
+    background: var(--green);
+    color: #fff;
+    width: 32%;
+}
+/* Mise en page du sous-menu actif */
+nav ul li ul li a.active {
+    background: none;
+    color: var(--green);
+    font-weight: bold;
+}
+nav ul ul li a:hover {
+    background: none;
+    color: green;
+}
+nav ul ul {
+    position: absolute;
+    top: 90px;
+    border-top: 3px solid var(--green);
+    opacity: 0;
+    visibility: hidden;
+    transition: top .3s;
+}
+nav ul ul ul {
+    border-top: none;
+}
+nav ul li:hover > ul {
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+}
+nav ul ul li {
+    position: relative;
+    margin: 0px;
+    width: 100%;
+    float: none;
+    display: list-item;
+    border-bottom: 1px solid var(--ecriture);
+}
+nav ul ul li a {
+    line-height: 50px;
+}
+nav ul ul ul li {
+    position:relative;
+    top: -60px;
+    left: 150px;
+}
+.show,.icon,input {
+    display: none;
+}
+.fa-plus {
+    font-size: 15px;
+    margin-left: 40px;
+}
+
+/* CREATION DU DARK MODE */
+nav .theme .changeTheme {
+    cursor: pointer;
+    position: fixed;
+    color: var(--ecriture);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+nav .theme #changeTheme {
+    background: linear-gradient(#ffffff00, #ffffff00), url(../img/icon-light-mode.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+}
+
+/* RESPONSIVE */
+/* Mise en page du bouton pour le format Smartphone */
+@media all and (max-width:450px) {
+    nav .logo a {
+        font-size: 24px;
+    }
+}
+/* Mise en page pour tablette */
+@media screen and (min-width:950px) and (max-width:1056px) {
+    nav .logo a {
+        padding-left: 40px;
+        width: 40%;
+    }
+    nav ul {
+        margin-right: 10px;
+    }
+    nav lu li a {
+        line-height: 70px;
+        padding: 7px 11px;
+    }
+}
+/* Mise en page pour le bouton du Menu */
+@media all and (max-width:980px) {
+    nav ul {
+        margin-right: 0px;
+        width: 100%;
+    }
+    nav .logo a {
+        padding-left: 40px;
+        width: 100%;
+    }
+    .show + a, ul {
+        display: none;
+    }
+    nav ul li,nav ul ul li {
+        display: block;
+        width: 100%;
+    }
+    .show {
+        display: block;
+        color: var(--ecriture);
+        font-size: 18px;
+        padding: 0 15px;
+        line-height: 70px;
+        cursor: pointer;
+    }
+    .show-active {
+        color: var(--green);
+        font-weight: bold;
+    }
+    label .active {
+        color: var(--green);
+    }
+    .icon {
+        display: block;
+        color: var(--green);
+        position: absolute;
+        top: 0;
+        right: 25px;
+        line-height: 70px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    nav ul ul {
+        top: 70px;
+        border-top: 0px;
+        float: none;
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+    }
+    nav ul ul a {
+        padding-left: 40px;
+    }
+    nav ul ul ul a {
+        padding-left: 80px;
+    }
+    nav ul ul ul li {
+        position: static;
+    }
+    [id^=btn]:checked + ul {
+        display: block;
+    }
+    nav ul ul li {
+        border-bottom: 0px;
+    }
+    span.cancel:before {
+        content: '\f00d';
+    }
+}
+
+
+/* MISE EN PAGE DE LA PARTIE MY TEAM */
+.PresentationMyTeam {
+    padding: 90px 0;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam {
+    all: unset;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li {
+    all: unset;
+    display: block;
+    position: relative;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li.active::before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: #d4eec9;
+    border-radius: 50%;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li.active::after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: #b1daa0;
+    border-radius: 50%;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(1) {
+    align-self: flex-end;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(1)::before {
+    left: 64%;
+    bottom: -50px;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(1)::after {
+    left: 97%;
+    bottom: -81px;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(1) figure img {
+    margin-left: auto;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(2) {
+    align-self: flex-start;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(2)::before {
+    right: -70px;
+    top: 38%;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(2)::after {
+    bottom: 155px;
+    border-radius: 50%;
+    right: -120px;
+}
+.PresentationMyTeam .rExplicationMyTeamow .ImageMyTeam li:nth-child(2) figure img {
+    margin-right: auto;
+    max-width: 300px;
+    width: 100%;
+    margin-top: -50px;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(3) {
+    align-self: flex-end;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(3)::before {
+    right: -10px;
+    top: -66%;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(3)::after {
+    top: -130px;
+    border-radius: 50%;
+    right: -46px;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(3) figure img {
+    margin-left: auto;
+    margin-top: -50px;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li:nth-child(3):focus {
+    border: 10px solid red;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li figure {
+    position: relative;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li figure img {
+    display: block;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li figure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border: 4px solid #CDE4ED;
+    border-radius: 50%;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li figure:hover::after {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.PresentationMyTeam .ExplicationMyTeam .ImageMyTeam li.active figure::after {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.PresentationMyTeam .ExplicationMyTeam .TexteMyTeam > h3 {
+    font-size: 20px;
+    line-height: 1.45;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.PresentationMyTeam .ExplicationMyTeam .TexteMyTeam h1 {
+    font-size: 40px;
+    line-height: 1.225;
+    margin-top: 23px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.PresentationMyTeam .ExplicationMyTeam .TexteMyTeam .carousel-indicators {
+    all: unset;
+    padding-top: 43px;
+    display: flex;
+    list-style: none;
+}
+.PresentationMyTeam .ExplicationMyTeam .TexteMyTeam .carousel-indicators li {
+    background: #000;
+    background-clip: padding-box;
+    height: 2px;
+}
+.PresentationMyTeam .ExplicationMyTeam .TexteMyTeam .InfoMyTeam .InfosMyTeam {
+    margin-top: 42px;
+}
+.PresentationMyTeam .ExplicationMyTeam .TexteMyTeam .InfoMyTeam .InfosMyTeam p {
+    font-size: 18px;
+    line-height: 1.72222;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+}
+.PresentationMyTeam .ExplicationMyTeam .TexteMyTeam .InfoMyTeam .InfosMyTeam h3 {
+    color: #000;
+    font-weight: 700;
+    margin-top: 37px;
+    font-size: 20px;
+    line-height: 1.45;
+    text-transform: uppercase;
+}
+@media only screen and (max-width: 1200px) {
+    .PresentationMyTeam .ExplicationMyTeam .ImageMyTeam {
+        margin-right: 25px;
+    }
+}
+
+
+/* MISE EN PAGE DU FEEL INSTAGRAM */
+.FeelInstagram .heading {
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 40px;
+    font-size: 40px;
+    line-height: 1.225;
+    margin-top: 23px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.FeelInstagram .GalleryInstagram {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.FeelInstagram .GalleryInstagram img {
+  height: 350px;
+  width: 350px;
+  transform: scale(1.0);
+  transition: transform 0.4s ease;
+}
+.FeelInstagram .img-box {
+  box-sizing: content-box;
+  margin: 10px;
+  height: 350px;
+  width: 350px;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
+  position: relative;
+  background-color: white;
+}
+.FeelInstagram .caption {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  opacity: 0.0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.FeelInstagram .caption p {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+    text-decoration: none;
+    color: white;
+}
+.FeelInstagram .caption .opacity-low p {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+}
+.FeelInstagram .transparent-box {
+  height: 350px;
+  width: 350px;
+  background-color:rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s ease;
+}
+.FeelInstagram .img-box:hover img { 
+  transform: scale(1.1);
+}
+.FeelInstagram .img-box:hover .transparent-box {
+  background-color:rgba(0, 0, 0, 0.5);
+}
+.FeelInstagram .img-box:hover .caption {
+  transform: translateY(-20px);
+  opacity: 1.0;
+}
+.FeelInstagram .img-box:hover {
+  cursor: pointer;
+}
+.FeelInstagram .caption > p:nth-child(2) {
+  font-size: 1.5em;
+}
+.FeelInstagram .opacity-low {
+  opacity: 0.5;
+}
+
+
+/* MISE EN PAGE DU FOOTER */
+footer {
+    position: inherit;
+    background: var(--bg-cours);
+    padding: 10px 10px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: -1;
+}
+footer .social_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    color: white;
+    padding: 0;
+    list-style: none;
+}
+footer .social_icon li a {
+    font-size: 20px;
+    color: white;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+footer .social_icon li a p:hover {
+    transform: none;
+    color: #b2deeb;
+    cursor: pointer;
+}
+footer p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+@media (max-width: 768px) {
+    footer p {
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+/* MISE EN PAGE DE LA SEPARATION ENTRE LES DIFFERENTES PARTIES */
+.separation {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+}
