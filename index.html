@@ -16,7 +16,7 @@
 
         <!-- Lien pour icone -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Icons -->
         <link rel="icon" href="img/logo.jpeg">
     </head>
@@ -30,7 +30,7 @@
             </div>
             <!-- Création du titre du menu -->
             <div class="logo">
-                <a href="index.html">Trick et <strong>Marty</strong></a>
+                <a href="#">Trick et <strong>Marty</strong></a>
             </div>
             <!-- Création du bouton pour le menu au format smartphone -->
             <label for="btn" class="icon">
@@ -40,7 +40,7 @@
                 
                 <!-- Création du menu avec les sous-menus -->
                 <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="#" class="active">Accueil</a></li>
                     <li><a href="html/teams.html">Équipe</a></li>
                     <li><a href=""></a></li>
                     <li><a href="">Conception</a></li>
@@ -70,7 +70,7 @@
                                             </div>
                                         </div>
                                         <div class="CompteRebours">
-                                            <h1>⭐ Mes 20 ans ! ⭐</h1>
+                                            <h1>⭐ Inscription ! ⭐</h1>
                                             <div class="CompteReboursAffichage">
                                                 <div class="temps">
                                                     <p id="jours">00</p>
@@ -103,86 +103,42 @@
         </div>
     
 
-        <!-- CREATION DE LA PARTIE DES DIFFERENTS  -->
-        <section class="cours" id="cours">
-            <!-- Mise en page du titre de la partie -->
-            <div class="heading">
-                <span>Notre Team</span>
-                <h1>Notre équipe Trick et Morty</h1>
-            </div>
-
-            <!-- Mise en page des différentes matières présentes dans ce site -->
-            <div class="box-container">
-                <!-- Mise en page de la première partie : ANTOINE -->
-                <div class="box" data-aos="fade-up" data-aos-delay="150">
-                    <div class="image">
-                        <img src="https://cdn.pixabay.com/photo/2022/11/14/13/39/brown-bear-7591629_960_720.jpg" alt="">
+        <!-- CREATION DE LA SECTION POUR AMENER A LA TEAM -->
+        <section class="testimonial">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <ol class="carousel-indicators tabs">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                                <figure>
+                                    <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-01-179x179.png" class="img-fluid" alt="">
+                                </figure>
+                            </li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active">
+                                <figure>
+                                    <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-02-306x306.png" class="img-fluid" alt="">
+                                </figure>
+                            </li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active">
+                                <figure>
+                                    <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-03-179x179.png" class="img-fluid" alt="">
+                                </figure>
+                            </li>
+                        </ol>
                     </div>
-                    <div class="content">
-                        <h3>Antoine</h3>
-                        <p style="padding-top: 1rem; padding-bottom: 0;">Son rôle :</p>
-                        <p style="padding: 0;"> • Communication</p>
-                        <p style="padding-top: 0; padding-bottom: 1rem;"> • Maj hebdomadaire du planning éditorial</p>
-                    </div>
-                </div>
-                <!-- Mise en page de la deuxième partie : CLEMENT -->
-                <div class="box" data-aos="fade-up" data-aos-delay="300">
-                    <div class="image">
-                        <img src="https://cdn.pixabay.com/photo/2022/11/14/13/39/brown-bear-7591629_960_720.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>Clément</h3>
-                        <p style="padding-top: 1rem; padding-bottom: 0;">Son rôle :</p>
-                        <p style="padding: 0;"> • Création et gestion du site internet</p>
-                        <p style="padding-top: 0; padding-bottom: 1rem;"> • Gestion des sponsors</p>
-                    </div>
-                </div>
-                <!-- Mise en page de la troisième partie : KILIAN -->
-                <div class="box" data-aos="fade-up" data-aos-delay="450">
-                    <div class="image">
-                        <img src="https://cdn.pixabay.com/photo/2022/11/14/13/39/brown-bear-7591629_960_720.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>Kilian</h3>
-                        <p style="padding-top: 1rem; padding-bottom: 0;">Son rôle :</p>
-                        <p style="padding: 0;"> • Construction des déguisements</p>
-                        <p style="padding-top: 0; padding-bottom: 1rem;"> • Construction de la caisse à savon</p>
-                    </div>
-                </div>
-                <!-- Mise en page de la quatrième partie : MARION -->
-                <div class="box" data-aos="fade-up" data-aos-delay="600">
-                    <div class="image">
-                        <img src="https://cdn.pixabay.com/photo/2022/11/14/13/39/brown-bear-7591629_960_720.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>Marion</h3>
-                        <p style="padding-top: 1rem; padding-bottom: 0;">Son rôle :</p>
-                        <p style="padding: 0;"> • Communication</p>
-                        <p style="padding-top: 0; padding-bottom: 1rem;"> • Construction de la caisse à savon</p>
-                    </div>
-                </div>
-                <!-- Mise en page de la cinquième partie : LOUANE -->
-                <div class="box" data-aos="fade-up" data-aos-delay="750">
-                    <div class="image">
-                        <img src="https://cdn.pixabay.com/photo/2022/11/14/13/39/brown-bear-7591629_960_720.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>Louane</h3>
-                        <p style="padding-top: 1rem; padding-bottom: 0;">Son rôle :</p>
-                        <p style="padding: 0;"> • Team Manager</p>
-                        <p style="padding-top: 0; padding-bottom: 1rem;"> • Création du contenu</p>
-                    </div>
-                </div>
-                <!-- Mise en page de la sixième partie : NATHAN -->
-                <div class="box" data-aos="fade-up" data-aos-delay="900">
-                    <div class="image">
-                        <img src="https://cdn.pixabay.com/photo/2022/11/14/13/39/brown-bear-7591629_960_720.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>Nathan</h3>
-                        <p style="padding-top: 1rem; padding-bottom: 0;">Son rôle :</p>
-                        <p style="padding: 0;"> • </p>
-                        <p style="padding-top: 0; padding-bottom: 1rem;"> • </p>
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                        <div id="carouselExampleIndicators" data-interval="false" class="carousel slide" data-ride="carousel">
+                            <h3>Venez découvrir notre équipe</h3>
+                            <h1>La Team Trick & Marty</h1>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="quote-wrapper">
+                                        <p>Nous sommes une équipe d'étudiants de plusieurs formations et écoles différentes. Nous sommes créatifs, diversifiés, motivés et innovants, travaillant dans différents domaines pour atteindre notre objectif qui est participé à la Course Caisse à Savon de RedBull en 2023.</p>
+                                        <a href="html/teams.html"><h3>Découvrez nous ></h3></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 /* INSERTION DU COMPTE A REBOURS */
 const body = document.body;
-const endTime = new Date('May 11 2023 23:59:59');
+const endTime = new Date('March 27 2023 23:59:59');
 const daysEl = document.getElementById('jours');
 const hoursEl = document.getElementById('heures');
 const minutesEl = document.getElementById('minutes');
@@ -21,3 +21,41 @@ function updateCountdown() {
 	minutesEl.innerHTML = minutes < 10 ? '0'+minutes : minutes;
 	secondsEl.innerHTML = secondes < 10 ? '0'+secondes : secondes;
 }
+
+
+
+
+(function () {
+	"use strict";
+  
+	var carousels = function () {
+	  $(".owl-carousel1").owlCarousel({
+		loop: true,
+		center: true,
+		margin: 0,
+		responsiveClass: true,
+		nav: false,
+		responsive: {
+		  0: {
+			items: 1,
+			nav: false
+		  },
+		  680: {
+			items: 2,
+			nav: false,
+			loop: false
+		  },
+		  1000: {
+			items: 3,
+			nav: true
+		  }
+		}
+	  });
+	};
+  
+	(function ($) {
+	  carousels();
+	})(jQuery);
+  })();
+  
+

@@ -11,13 +11,17 @@
         <!-- Mes pages CSS -->
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../css/MyTeam.scss">
+        <link rel="stylesheet" href="../css/MyTeam.css">
 
         <!-- Lien pour icone -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
         <!-- Icons -->
         <link rel="icon" href="../img/logo.jpeg">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.2.1/vue-resource.min.js"></script>
     </head>
 
     <body>
@@ -39,8 +43,8 @@
                 
                 <!-- Création du menu avec les sous-menus -->
                 <ul>
-                    <li><a href="../index.html" class="active">Accueil</a></li>
-                    <li><a href="teams.html">Équipe</a></li>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="#" class="active">Équipe</a></li>
                     <li><a href=""></a></li>
                     <li><a href="">Conception</a></li>
                 </ul>
@@ -48,56 +52,212 @@
 
 
         <!-- Affichage de notre Team -->
-            <h2>Rencontrer notre équipe</h2>
-
-            <div :class="['container', isSelected ? 'container-selected':'', isReady ? 'container-ready':'']" id="app">
-                <div class="team-container">
-                  <div class="header">
-                    <h2 class="header-title">Our Team</h2>
-                  </div>
-                  
-                  <div class="person-list">
-                    <div class="person" v-for="(person,index) in persons" @click="selectPerson(index,$event)"><img class="person-img" :src="person.photo">
-                      <div class="person-details">
-                        <h2 class="person-title"><span id="name"></span>{{person.name}}</h2>
-                        <p class="person-desc"><span id="title"></span>{{person.title}}</p>
-                      </div>
-                    </div>
-                  </div>
+        <div :class="['container', isSelected ? 'container-selected':'', isReady ? 'container-ready':'']" id="app">
+          <div class="team-container">
+            <div class="header">
+              <h2 class="header-title">Our Team</h2>
+            </div>
+            <div class="person-list">
+              <div class="person" v-for="(person,index) in persons" @click="selectPerson(index,$event)"><img class="person-img" :src="person.photo">
+                <div class="person-details">
+                  <h2 class="person-title">{{person.name}}</h2>
+                  <p class="person-desc">{{person.title}}</p>
                 </div>
-                <div class="team-detail">
-                  <div class="team-detail-inner" v-if="isOk">
-                    <div class="team-detail-left" :style=`background-image:url(${selectedPersonData.photo})`>
-                      <div class="team-detail-photo"><img :src="selectedPersonData.photo" alt="">
-                      </div>
+              </div>
+            </div>
+          </div>
+          <div class="team-detail">
+            <div class="team-detail-inner" v-if="isOk">
+              <div class="team-detail-left" :style=`background-image:url(${selectedPersonData.photo})`>
+                <div class="team-detail-photo"><img :src="selectedPersonData.photo" alt="">
+                </div>
+              </div>
+              <div class="team-detail-right">
+                <div class="team-detail-bio">
+                  <div class="team-detail-header">
+                    <h2 class="person-title">{{selectedPersonData.name}}</h2>
+                    <p class="person-desc">{{selectedPersonData.title}}</p>
+                    <div class="social">
+                      <a href="selectedPersonData.social.linkedin" target="_blank" class="ion-social-linkedin"></a>
+                      <a href="selectedPersonData.social.instagram" target="_blank" class="ion-social-instagram"></a>
                     </div>
-                    <div class="team-detail-right">
-                      <div class="team-detail-bio">
-                        <div class="team-detail-header">
-                          <h2 class="person-title">{{selectedPersonData.name}}</h2>
-                          <p class="person-desc">{{selectedPersonData.title}}</p>
-                          <div class="social">
-                            <a :href="selectedPersonData.social.facebook" target="_blank" class="ion-social-facebook"></a>
-                            <a :href="selectedPersonData.social.twitter" target="_blank" class="ion-social-twitter"></a>
-                            <a href="selectedPersonData.social.linkedin" target="_blank" class="ion-social-linkedin"></a>
-                            <a href="selectedPersonData.social.instagram" target="_blank" class="ion-social-instagram"></a>
-                          </div>
-                        </div>
-                        <div class="team-detail-bio-content" v-html="selectedPersonData.bio">
-                        </div>
-                      </div>
-                    </div>
+                  </div>
+                  <div class="team-detail-bio-content" v-html="selectedPersonData.bio">
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
 
         
-        <script src="../persons.json"></script>
+        <!-- CREATION DU FOOTER -->
+        <footer>
+            <ul class="social_icon">
+                <li><a href=""><p>Instagram</p></a></li>
+                <p>-</p>
+                <li><a href=""><p>Mentions légales</p></a></li>
+                <p>-</p>
+                <li><a href=""><p>Newsletter</p></a></li>
+                <p>-</p>
+                <li><a href=""><p>Contact</p></a></li>
+            </ul>
+            <p style="margin-bottom: 10px;">Trick et Marty © 2023</p>
+        </footer>
+        
         <script>
-            document.getElementById('name').textContent = persons.name;
-            document.getElementById('title').textContent = persons.title;
+            const persons = [
+              {
+                name: "Louane MARINO",
+                photo: "https://serving.photos.photobox.com/53464066dc132288128cb11531bb767f0082dcde75f3b845cd905d38c4223e95e0dc7bc9.jpg",
+                title: "Team Manager, Création du contenu",
+                bio:
+                  "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet architecto ea blanditiis quo labore esse magnam illum ut quibusdam. Corrupti ratione iure aliquam adipisci! Harum vitae laboriosam temporibus illo suscipit?</p><p>Saepe repudiandae rerum quam ut perferendis, ullam similique nemo quod, assumenda mollitia consectetur. Eveniet optio maxime perferendis odit possimus? Facilis architecto nesciunt doloribus consectetur culpa veritatis accusamus expedita quos voluptate!</p><p>Nisi provident minus possimus optio voluptate rem, perspiciatis, placeat, culpa aperiam quod temporibus.</p>",
+                social: {
+                  linkedin: "https://www.linkedin.com/in/louane-marino-a0b494224/",
+                  instagram: "https://www.instagram.com/louanemarino/"
+                }
+              },
+              {
+                name: "Kilian ELSAS",
+                photo: "https://serving.photos.photobox.com/2226093445b640ea69b3247d4e4a31ee16d7569a38f898affce33adc8fc8d0f3ecf79591.jpg",
+                title: "Constrution des déguisements, Construction de la caisse à savon",
+                bio:
+                  "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet architecto ea blanditiis quo labore esse magnam illum ut quibusdam. Corrupti ratione iure aliquam adipisci! Harum vitae laboriosam temporibus illo suscipit?</p><p>Saepe repudiandae rerum quam ut perferendis, ullam similique nemo quod, assumenda mollitia consectetur. Eveniet optio maxime perferendis odit possimus? Facilis architecto nesciunt doloribus consectetur culpa veritatis accusamus expedita quos voluptate!</p><p>Nisi provident minus possimus optio voluptate rem, perspiciatis, placeat, culpa aperiam quod temporibus.</p>",
+                social: {
+                  linkedin: "https://www.linkedin.com/in/kilian-elsas/",
+                  instagram: "https://www.instagram.com/kelsas_/"
+                }
+              },
+              {
+                name: "Clément VITRAT",
+                photo: "https://serving.photos.photobox.com/80553616a29779bd113f7a340b9b1eae3636dd38534c57877597a17b7131be741c67b3ae.jpg",
+                title: "Création et gestion du site internet, Gestion des sponsors",
+                bio:
+                  "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet architecto ea blanditiis quo labore esse magnam illum ut quibusdam. Corrupti ratione iure aliquam adipisci! Harum vitae laboriosam temporibus illo suscipit?</p><p>Saepe repudiandae rerum quam ut perferendis, ullam similique nemo quod, assumenda mollitia consectetur. Eveniet optio maxime perferendis odit possimus? Facilis architecto nesciunt doloribus consectetur culpa veritatis accusamus expedita quos voluptate!</p><p>Nisi provident minus possimus optio voluptate rem, perspiciatis, placeat, culpa aperiam quod temporibus.</p>",
+                social: {
+                  linkedin: "https://www.linkedin.com/in/clement-vitrat-gutierrez-575444223/",
+                  instagram: "https://www.instagram.com/clement_v11/"
+                }
+              },
+              {
+                name: "Marion GAZZOLO",
+                photo: "https://serving.photos.photobox.com/52898788b03c8a0e32a8cb52b4d43d7525f119daa2629569dbda0a8d827192217fb64c22.jpg",
+                title: "Communication, Construction de la caisse à savon",
+                bio:
+                  "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet architecto ea blanditiis quo labore esse magnam illum ut quibusdam. Corrupti ratione iure aliquam adipisci! Harum vitae laboriosam temporibus illo suscipit?</p><p>Saepe repudiandae rerum quam ut perferendis, ullam similique nemo quod, assumenda mollitia consectetur. Eveniet optio maxime perferendis odit possimus? Facilis architecto nesciunt doloribus consectetur culpa veritatis accusamus expedita quos voluptate!</p><p>Nisi provident minus possimus optio voluptate rem, perspiciatis, placeat, culpa aperiam quod temporibus.</p>",
+                social: {
+                  linkedin: "https://www.linkedin.com/in/marion-gazzolo-4b56261b8/",
+                  instagram: ""
+                }
+              },
+              {
+                name: "Antoine BRUNET",
+                photo: "https://serving.photos.photobox.com/53464066dc132288128cb11531bb767f0082dcde75f3b845cd905d38c4223e95e0dc7bc9.jpg",
+                title: "Communication, Maj hebdomadaire du planning éditorial",
+                bio:
+                  "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet architecto ea blanditiis quo labore esse magnam illum ut quibusdam. Corrupti ratione iure aliquam adipisci! Harum vitae laboriosam temporibus illo suscipit?</p><p>Saepe repudiandae rerum quam ut perferendis, ullam similique nemo quod, assumenda mollitia consectetur. Eveniet optio maxime perferendis odit possimus? Facilis architecto nesciunt doloribus consectetur culpa veritatis accusamus expedita quos voluptate!</p><p>Nisi provident minus possimus optio voluptate rem, perspiciatis, placeat, culpa aperiam quod temporibus.</p>",
+                social: {
+                  linkedin: "https://www.linkedin.com/in/antoine-brunet-356994210/",
+                  instagram: "https://www.instagram.com/brunet_antoine/"
+                }
+              },
+              {
+                name: "Nathan MORARD",
+                photo: "https://serving.photos.photobox.com/2226093445b640ea69b3247d4e4a31ee16d7569a38f898affce33adc8fc8d0f3ecf79591.jpg",
+                title: "Création du site internet, Construction de la caisse à savon",
+                bio:
+                  "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet architecto ea blanditiis quo labore esse magnam illum ut quibusdam. Corrupti ratione iure aliquam adipisci! Harum vitae laboriosam temporibus illo suscipit?</p><p>Saepe repudiandae rerum quam ut perferendis, ullam similique nemo quod, assumenda mollitia consectetur. Eveniet optio maxime perferendis odit possimus? Facilis architecto nesciunt doloribus consectetur culpa veritatis accusamus expedita quos voluptate!</p><p>Nisi provident minus possimus optio voluptate rem, perspiciatis, placeat, culpa aperiam quod temporibus.</p>",
+                social: {
+                  linkedin: "https://www.linkedin.com/in/nathan-morard-708825222/",
+                  instagram: "https://www.instagram.com/nathanmrd84/"
+                }
+              },
+              {
+                name: "Hugo LAURENT",
+                photo: "https://serving.photos.photobox.com/80553616a29779bd113f7a340b9b1eae3636dd38534c57877597a17b7131be741c67b3ae.jpg",
+                title: "Gestion du dossier d'inscription, Construction de la caisse à savon",
+                bio:
+                  "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet architecto ea blanditiis quo labore esse magnam illum ut quibusdam. Corrupti ratione iure aliquam adipisci! Harum vitae laboriosam temporibus illo suscipit?</p><p>Saepe repudiandae rerum quam ut perferendis, ullam similique nemo quod, assumenda mollitia consectetur. Eveniet optio maxime perferendis odit possimus? Facilis architecto nesciunt doloribus consectetur culpa veritatis accusamus expedita quos voluptate!</p><p>Nisi provident minus possimus optio voluptate rem, perspiciatis, placeat, culpa aperiam quod temporibus.</p>",
+                social: {
+                  linkedin: "https://www.linkedin.com/in/hugo-laurent-521502222/",
+                  instagram: "https://www.instagram.com/hugo_laurent_crazyy/"
+                }
+              }
+            ];
+
+            const app = new Vue({
+              el: "#app",
+              data() {
+                return {
+                  persons: persons,
+                  selectedPersonIndex: null,
+                  isSelected: false,
+                  selectedPerson: null,
+                  inlineStyles: null,
+                  isReady: false,
+                  isOk: false,
+                  selectedPersonData: {
+                    name: null,
+                    title: null,
+                    photo: null,
+                    social: {
+                      facebook: null,
+                      twitter: null,
+                      linkedin: null
+                    }
+                  }
+                };
+              },
+              methods: {
+                selectPerson(index, el) {
+                  if (!this.isOk) {
+                    this.selectedPersonIndex = index;
+                    this.isSelected = true;
+                    el.target.parentElement.className == "person-details"
+                      ? (this.selectedPerson = el.target.parentElement.parentElement)
+                      : (this.selectedPerson = el.target.parentElement);
+            
+                    this.selectedPerson.classList.add("person-selected");
+                    this.selectedPerson.setAttribute(
+                      "style",
+                      `width:${this.selectedPerson.offsetWidth}px;`
+                    );
+                    this.selectedPersonData = this.persons[index];
+                    window.setTimeout(() => {
+                      this.inlineStyles = `width:${this.selectedPerson
+                        .offsetWidth}px;height:${this.selectedPerson
+                        .offsetHeight}px;left:${this.selectedPerson.offsetLeft}px;top:${this
+                        .selectedPerson.offsetTop}px;position:fixed`;
+                      this.selectedPerson.setAttribute("style", this.inlineStyles);
+                    }, 400);
+                    window.setTimeout(() => {
+                      this.isReady = true;
+                      this.isOk = true;
+                    }, 420);
+                  } else {
+                    this.reset();
+                  }
+                },
+                reset() {
+                  this.isReady = false;
+                  window.setTimeout(() => {
+                    this.selectedPerson.classList.add("person-back");
+                  }, 280);
+                  window.setTimeout(() => {
+                    this.selectedPerson.setAttribute("style", "");
+                  }, 340);
+                  window.setTimeout(() => {
+                    this.isSelected = false;
+                    this.selectedPerson.classList.remove("person-back", "person-selected");
+                    this.isOk = false;
+                  }, 400);
+                }
+              }
+            });
+
         </script>
-
-    </body>
-
+            
+     </body>
+    
 </html>
